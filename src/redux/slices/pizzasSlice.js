@@ -34,12 +34,14 @@ const pizzaSlice = createSlice({
       state.items = action.payload;
       state.status = "success";
     });
-    builder.addCase(fetchPizzas.rejected, (state, action) => {
+    builder.addCase(fetchPizzas.rejected, (state) => {
       state.status = "error";
       state.items = [];
     });
   },
 });
+
+export const selectPizzaData = (state) => state.pizza
 
 export const { setItems } = pizzaSlice.actions;
 
