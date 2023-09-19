@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { selectCart } from "../redux/slices/cartSlice";
@@ -8,6 +8,9 @@ import Search from "./Search";
 
 function Header() {
   const { items, totalPrice } = useSelector(selectCart);
+  const location = useLocation();
+
+  console.log(location);
 
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
