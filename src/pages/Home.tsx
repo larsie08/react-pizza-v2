@@ -12,13 +12,13 @@ import {
 
 import { fetchPizzas, selectPizzaData } from "../redux/slices/pizzasSlice";
 
-import Sort, { list } from "../components/Sort";
+import Sort, { SortList } from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Categories from "../components/Categories";
 import Pagination from "../components/Pagination";
 
-const Home = () => {
+const Home: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSearch = useRef(false);
@@ -28,12 +28,12 @@ const Home = () => {
     useSelector(selectFilter);
   const { items, status } = useSelector(selectPizzaData);
 
-  const onClickCategory = (id) => {
-    dispatch(setCategoryId(id));
+  const onChangeCategory = (idx: number) => {
+    dispatch(setCategoryId(idx));
   };
 
-  const onChangePage = (number) => {
-    dispatch(setCurrentPage(number));
+  const onChangePage = (page: number) => {
+    dispatch(setCurrentPage(page));
   };
 
   const getPizzas = async () => {
@@ -43,6 +43,7 @@ const Home = () => {
     const search = searchValue ? `&search=${searchValue}` : "";
 
     dispatch(
+      // @ts-ignore
       fetchPizzas({
         sortBy,
         order,
@@ -71,7 +72,9 @@ const Home = () => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
 
-      const sort = list.find((obj) => obj.sortProperty === params.sortProperty);
+      const sort = SortList.find(
+        (obj) => obj.sortProperty === params.sortProperty
+      );
 
       dispatch(
         setFilters({
@@ -95,11 +98,7 @@ const Home = () => {
     isSearch.current = false;
   }, []);
 
-  const pizzas = items.map((obj) => (
-    <Link key={obj.id} to={`/pizza/${obj.id}`}>
-      <PizzaBlock {...obj} />
-    </Link>
-  ));
+  const pizzas = items.map((obj: any) => <PizzaBlock key={obj.id} {...obj} />);
   const skeletons = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
   ));
@@ -109,7 +108,7 @@ const Home = () => {
       <div className="content__top">
         <Categories
           value={categoryId}
-          onClickCategory={(i) => onClickCategory(i)}
+          onChangeCategory={(i:number) => onChangeCategory(i)}
         />
         <Sort />
       </div>
