@@ -8,7 +8,7 @@ import styles from "./Search.module.scss";
 
 const Search = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const updateSearchValue = useCallback(
@@ -20,11 +20,11 @@ const Search = () => {
 
   const onClickClear = () => {
     setValue("");
-    dispatch(setSearchValue(value));
+    dispatch(setSearchValue(""));
     inputRef.current?.focus();
   };
 
-  const onChangeInput = (event: any) => {
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
     updateSearchValue(event.target.value);
   };
