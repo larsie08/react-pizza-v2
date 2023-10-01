@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/react-pizza-v2/static/css/main.cf2401ca.css",
-    "main.js": "/react-pizza-v2/static/js/main.3439a589.js",
+    "main.js": "/react-pizza-v2/static/js/main.422a434e.js",
     "Cart.js": "/react-pizza-v2/static/js/Cart.57151a39.chunk.js",
     "FullPizza.js": "/react-pizza-v2/static/js/FullPizza.c33392e1.chunk.js",
     "NotFound.js": "/react-pizza-v2/static/js/NotFound.7b8f34e7.chunk.js",
     "index.html": "/react-pizza-v2/index.html",
     "main.cf2401ca.css.map": "/react-pizza-v2/static/css/main.cf2401ca.css.map",
-    "main.3439a589.js.map": "/react-pizza-v2/static/js/main.3439a589.js.map",
+    "main.422a434e.js.map": "/react-pizza-v2/static/js/main.422a434e.js.map",
     "Cart.57151a39.chunk.js.map": "/react-pizza-v2/static/js/Cart.57151a39.chunk.js.map",
     "FullPizza.c33392e1.chunk.js.map": "/react-pizza-v2/static/js/FullPizza.c33392e1.chunk.js.map",
     "NotFound.7b8f34e7.chunk.js.map": "/react-pizza-v2/static/js/NotFound.7b8f34e7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cf2401ca.css",
-    "static/js/main.3439a589.js"
+    "static/js/main.422a434e.js"
   ]
 }
