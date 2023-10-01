@@ -2,11 +2,11 @@ import React, { useCallback, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import debounce from "lodash.debounce";
 
-import { setSearchValue } from "../../redux/slices/filterSlice";
-
 import styles from "./Search.module.scss";
 
-const Search = () => {
+import { setSearchValue } from "../../redux/filter/slice";
+
+export const Search = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -64,5 +64,3 @@ const Search = () => {
     </div>
   );
 };
-
-export default Search;
